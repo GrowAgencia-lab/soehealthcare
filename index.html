@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clínica SOE Health Care · Brochure</title>
+<link rel="icon" href="img/tree.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#283b8b;--cyan:#26a7de;--teal:#56c3d1;--blue:#1f78b9;--ink:#26304a;--bg:#dfe4ea}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:Montserrat,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer}
+
+/* ===== Documento / hojas A4 ===== */
+.doc{display:flex;flex-direction:column;align-items:center;gap:22px;padding:84px 12px 110px}
+.client .doc{padding-top:20px}
+.page{width:min(794px,calc(100vw - 24px));aspect-ratio:210/297;container-type:inline-size;position:relative;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(180deg,#fff 0%,#f6f8fa 55%,#e8ecf1 100%);box-shadow:0 8px 30px rgba(20,35,70,.18);color:var(--ink)}
+.pbody{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:2.2cqw;padding:3cqw 6cqw 2cqw;position:relative;z-index:2}
+.pbody>*{flex-shrink:0}
+.phead{display:flex;align-items:center;justify-content:space-between;padding:4.5cqw 0 3.5cqw 6cqw;flex-shrink:0}
+.logo-s{width:15cqw;height:auto;display:block}
+.chip-t{background:var(--teal);color:#fff;font-size:2.3cqw;letter-spacing:.1em;text-transform:uppercase;padding:1.3cqw 5cqw 1.3cqw 4cqw;border-radius:4cqw 0 0 4cqw;min-width:32cqw;text-align:center;font-weight:500}
+.band{background:var(--cyan);color:#fff;text-align:center;letter-spacing:.22em;text-transform:uppercase;font-size:2cqw;padding:1.1cqw 2cqw;flex-shrink:0;font-weight:500}
+.pfoot{background:var(--navy);color:#fff;font-size:1.55cqw;display:flex;justify-content:center;align-items:center;gap:1.6cqw;padding:1.7cqw 3cqw;flex-shrink:0;position:relative;z-index:3;text-align:center}
+.fi{display:inline-flex;align-items:center;gap:.8cqw}
+.fi svg{width:1.8cqw;height:1.8cqw;fill:currentColor;flex-shrink:0}
+.sep{opacity:.6}
+.wv{height:9cqw;margin-top:-6cqw;position:relative;z-index:1;flex-shrink:0;pointer-events:none}
+.wv svg{width:100%;height:100%;display:block}
+.ttl{font-family:'Josefin Sans',Montserrat,sans-serif;color:var(--navy);font-size:4.1cqw;font-weight:600;line-height:1.12;margin:0}
+.ttl.sm{font-size:3.2cqw}
+.sub{font-family:'Josefin Sans',Montserrat,sans-serif;color:var(--blue);font-size:2.6cqw;font-weight:600;margin:0}
+.txt{font-size:1.85cqw;line-height:1.6;margin:0}
+.txt.sm{font-size:1.6cqw}
+.quote{font-style:italic;text-align:center;color:var(--navy);font-size:2.1cqw;font-weight:500;margin:0}
+.ed{white-space:pre-line}
+
+/* imágenes */
+.im{position:relative;background:#dde5ec center/cover no-repeat;border-radius:1.2cqw;overflow:hidden}
+.hero{border-radius:0;aspect-ratio:16/8.2;width:100%;flex-shrink:0}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:1.6cqw}
+.gal .im{aspect-ratio:16/10}
+.im-lab{position:absolute;left:1cqw;bottom:1cqw;background:rgba(40,59,139,.85);color:#fff;font-size:1.4cqw;padding:.4cqw 1.2cqw;border-radius:2cqw}
+
+/* listas */
+.list{list-style:none;margin:0;padding:0;display:grid;gap:1.3cqw}
+.c1{grid-template-columns:1fr}.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:1fr 1fr 1fr}
+.list li{position:relative;display:flex;gap:1cqw;align-items:flex-start;border-radius:1cqw;padding:1.4cqw 1.7cqw;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff}
+.lb{min-width:0;flex:1}
+.lt{display:block;font-weight:600;font-size:1.75cqw;line-height:1.3}
+.ld{display:block;font-size:1.45cqw;line-height:1.45;opacity:.95;margin-top:.4cqw}
+.ck svg{width:1.9cqw;height:1.9cqw;fill:#fff;margin-top:.1cqw;display:block}
+.cards li{background:#fff;color:var(--ink);border-left:.6cqw solid var(--teal);box-shadow:0 .4cqw 1.6cqw rgba(30,50,90,.08)}
+.cards .lt{color:var(--navy);font-size:1.85cqw}
+.stats li{background:none;flex-direction:column;align-items:center;text-align:center;padding:1cqw;border-top:.4cqw solid var(--teal);border-radius:0;color:var(--ink)}
+.stats .lb{text-align:center}
+.stats .lt{font-family:'Josefin Sans',Montserrat,sans-serif;font-size:5cqw;color:var(--navy);line-height:1}
+.stats .ld{font-size:1.5cqw}
+.steps{counter-reset:st}
+.steps li{background:#fff;color:var(--ink);flex-direction:column;box-shadow:0 .4cqw 1.6cqw rgba(30,50,90,.08);padding:2cqw}
+.steps li:not(.add):before{counter-increment:st;content:counter(st);display:grid;place-items:center;width:4.4cqw;height:4.4cqw;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:2cqw}
+.steps .lt{color:var(--navy)}
+.quotes li{background:#fff;color:var(--ink);border-left:.6cqw solid var(--cyan);box-shadow:0 .4cqw 1.6cqw rgba(30,50,90,.08)}
+.quotes .lt{font-style:italic;font-weight:500;font-size:1.8cqw}
+.quotes .ld{color:var(--blue);font-weight:600}
+
+/* portada */
+.cov-img{border-radius:0;height:80cqw;flex-shrink:0}
+.cov-logo{position:absolute;top:63cqw;right:6cqw;width:31cqw;background:#fff;padding:3cqw 3cqw 2.4cqw;border-radius:2cqw;box-shadow:0 1cqw 4cqw rgba(20,40,90,.18);z-index:4}
+.cov-b{padding-right:42cqw;padding-top:5cqw;gap:1.8cqw}
+.cov-title{font-family:'Josefin Sans',Montserrat,sans-serif;text-transform:uppercase;letter-spacing:.32em;color:var(--cyan);font-size:4cqw;line-height:1.3;font-weight:400;border-left:.5cqw solid var(--navy);padding-left:2.4cqw;margin:0}
+.cov-sub{color:var(--navy);font-size:2cqw;font-weight:500;padding-left:2.9cqw}
+.cov-claim{font-size:1.8cqw;line-height:1.5;margin:0;color:#4b5670;padding-left:2.9cqw}
+.cov-para{margin-top:1cqw;background:var(--navy);color:#fff;border-radius:1cqw;padding:1.6cqw 2cqw;display:flex;flex-direction:column;gap:.4cqw;font-size:1.5cqw}
+.cov-para b{font-size:2.6cqw;font-family:'Josefin Sans',Montserrat,sans-serif}
+.cov-tree{position:absolute;right:8cqw;bottom:8cqw;width:24cqw;z-index:2}
+
+/* quiénes */
+.q-grid{display:grid;grid-template-columns:40% 1fr;gap:4cqw;align-items:center}
+.q-img{aspect-ratio:3/4.1;border-radius:2cqw}
+.q-txt{display:flex;flex-direction:column;gap:2cqw}
+
+/* networking */
+.net{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:1cqw;height:50cqw;flex-shrink:0}
+.net .im{border-radius:0}
+.net .n1{grid-row:1/3}
+
+/* beneficios */
+.big2{display:grid;grid-template-columns:1.2fr 1fr;gap:2cqw}
+.bc{border-radius:2cqw;padding:3.4cqw 3cqw;color:#fff;display:flex;flex-direction:column;justify-content:center}
+.b1{background:linear-gradient(135deg,var(--navy),var(--blue))}
+.b2{background:linear-gradient(135deg,var(--teal),var(--cyan))}
+.bn{font-family:'Josefin Sans',Montserrat,sans-serif;font-size:7cqw;font-weight:600;line-height:1}
+.b2 .bn{font-size:4.6cqw}
+.bt{font-size:1.8cqw;margin-top:1cqw;line-height:1.35;text-transform:uppercase;letter-spacing:.04em;font-weight:500}
+
+/* propuesta */
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:1.2cqw 3cqw;background:#fff;border-radius:1.4cqw;padding:2.2cqw 2.6cqw;box-shadow:0 .4cqw 1.6cqw rgba(30,50,90,.08);border-top:.6cqw solid var(--teal)}
+.editing .meta{cursor:pointer}
+.mt small{display:block;font-size:1.3cqw;text-transform:uppercase;letter-spacing:.1em;color:#7a869c}
+.mt b{font-size:1.9cqw;color:var(--navy)}
+.pt{width:100%;border-collapse:collapse;font-size:1.6cqw;background:#fff;border-radius:1.2cqw;overflow:hidden}
+.pt th{background:var(--navy);color:#fff;font-weight:600;text-align:left;padding:1.2cqw 1.4cqw;font-size:1.4cqw;text-transform:uppercase;letter-spacing:.05em}
+.pt td{padding:1.1cqw 1.4cqw;border-bottom:1px solid #e3e8ef}
+.pt tr:nth-child(even) td{background:#f5f8fb}
+.pt th:nth-child(n+2),.pt td:nth-child(n+2){text-align:right}
+.pt .cv{font-weight:700;color:var(--blue);white-space:nowrap}
+.pt .dc{white-space:nowrap}
+.pt .xc{width:1%;padding:0 .6cqw}
+.addrow{align-self:flex-start;border:2px dashed #9fb4c7;background:#fff;color:var(--navy);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600}
+.nota{font-size:1.3cqw;color:#7a869c;margin:-1cqw 0 0}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:3cqw}
+.cols2 .sub{margin-bottom:.8cqw;font-size:2.2cqw}
+.firma{display:flex;justify-content:space-between;align-items:center;gap:3cqw;border-top:1px solid #d5dde7;padding-top:2cqw;margin-top:auto}
+.firma b{color:var(--navy);font-size:1.8cqw;display:block}
+.cta{display:inline-flex;align-items:center;gap:1.2cqw;background:#25d366;color:#fff;text-decoration:none;font-weight:700;font-size:1.8cqw;padding:1.6cqw 2.6cqw;border-radius:5cqw;box-shadow:0 .6cqw 2cqw rgba(37,211,102,.35);flex-shrink:0}
+.cta svg{width:2.6cqw;height:2.6cqw;fill:#fff}
+
+/* contratapa */
+.ct{align-items:center;text-align:center;justify-content:center;gap:3cqw;padding-top:8cqw}
+.ct-logo{width:46cqw}
+.qr{display:flex;align-items:center;gap:2.4cqw;background:#fff;padding:2cqw 3cqw 2cqw 2cqw;border-radius:2cqw;box-shadow:0 .4cqw 1.6cqw rgba(30,50,90,.1);text-align:left}
+.qr img{width:17cqw;height:17cqw;display:block}
+.qr p{font-size:1.8cqw;color:var(--navy);font-weight:600;max-width:24cqw;margin:0}
+.infs{display:flex;flex-direction:column;gap:1.2cqw;align-items:flex-start;font-size:1.8cqw}
+.inf{display:flex;gap:1.2cqw;align-items:center;color:var(--navy)}
+.inf svg{width:2.2cqw;height:2.2cqw;fill:var(--cyan);flex-shrink:0}
+.ct-tree{width:17cqw;margin-top:auto}
+.pg-contra .pfoot{font-style:italic}
+
+/* ===== Modo edición ===== */
+.editing .ed{outline:1.5px dashed transparent;outline-offset:2px;border-radius:2px;cursor:text;min-width:2em}
+.editing .ed:hover{outline-color:rgba(38,167,222,.6)}
+.editing .ed:focus{outline:2px solid #ffb300}
+.editing .ed:empty:before{content:attr(data-ph);opacity:.5;font-style:italic}
+body:not(.editing) .empty,body:not(.editing) .noimg{display:none!important}
+.measure .empty,.measure .noimg,.measure .add,.measure .addrow,.measure .xc{display:none!important}
+.editing .noimg{background:repeating-linear-gradient(45deg,#eef3f7 0 10px,#e4ebf1 10px 20px);outline:2px dashed #9fb4c7;outline-offset:-2px}
+.editing .gal .noimg{aspect-ratio:auto;height:9cqw}
+.im-btn{position:absolute;right:1.2cqw;bottom:1.2cqw;background:rgba(255,255,255,.95);border:0;border-radius:20px;padding:6px 12px;font-size:12px;font-weight:600;color:var(--navy);box-shadow:0 2px 8px rgba(0,0,0,.2);z-index:4}
+.cov-img .im-btn{top:2cqw;bottom:auto}
+.noimg .im-btn{left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);white-space:nowrap}
+.del{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;border:0;background:#e53935;color:#fff;font-size:14px;line-height:1;display:none;z-index:5;padding:0}
+.editing li:hover>.del,.editing li:focus-within>.del{display:block}
+.del.in{position:static;display:inline-block}
+.list li.add{background:none;box-shadow:none;border:0;padding:0;align-items:stretch}
+.add button{width:100%;min-height:100%;border:2px dashed #9fb4c7;background:rgba(255,255,255,.6);color:var(--navy);border-radius:1cqw;font-size:12px;font-weight:600;padding:8px}
+.pg-label{width:min(794px,calc(100vw - 24px));display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#5a6780;margin-bottom:-14px;font-weight:600}
+.pg-label button{border:0;background:none;color:#5a6780;text-decoration:underline;font-size:12px}
+.page.over{outline:3px solid #e53935}
+.page.over:after{content:'⚠ El contenido no entra en esta hoja: acortá algún texto o quitá elementos';position:absolute;left:0;right:0;top:0;background:#e53935;color:#fff;font:600 12px Montserrat,sans-serif;padding:6px 10px;text-align:center;z-index:20}
+
+/* ===== Barras ===== */
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08);display:flex;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap}
+.b-title{flex:1;min-width:140px;display:flex;flex-direction:column;line-height:1.25}
+.b-title b{color:var(--navy);font-size:15px}
+.b-title small{font-size:11px;color:#7a869c}
+.b-btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn,.bar button,.vbar button,.vbar a,.home-w button,.m-acts button,.login button{border:1px solid #d3dbe5;background:#fff;color:var(--navy);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.pri{background:var(--navy)!important;color:#fff!important;border-color:var(--navy)!important}
+.wa{background:#25d366!important;color:#fff!important;border-color:#25d366!important}
+.danger{color:#c62828!important}
+.prev-only{display:none}
+.viewing .bar .b-btns,.viewing .bar .b-title,.viewing .bar [data-act=back]{display:none}
+.viewing .bar .prev-only{display:flex;align-items:center;gap:10px;flex:1;justify-content:space-between;font-size:13px;color:#5a6780;font-weight:600}
+.vbar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:none;gap:8px;background:rgba(255,255,255,.96);padding:8px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.18);white-space:nowrap}
+.client .vbar,.viewing .vbar{display:flex}
+.vbar svg{width:16px;height:16px;fill:currentColor}
+
+/* panel lateral */
+.side{position:fixed;top:0;right:0;bottom:0;width:min(360px,92vw);background:#fff;z-index:60;box-shadow:-8px 0 30px rgba(0,0,0,.15);transform:translateX(105%);transition:transform .25s;overflow:auto;padding:16px 18px 40px}
+.side.open{transform:none}
+.side label{display:block;font-size:12px;font-weight:600;color:#5a6780;margin:10px 0}
+.side input:not([type=checkbox]),.side select{display:block;width:100%;margin-top:4px;padding:9px 10px;border:1px solid #cfd8e3;border-radius:8px;font:inherit;font-size:14px;color:var(--ink);background:#fff}
+.side h4{margin:18px 0 6px;color:var(--navy)}
+.s-head{display:flex;justify-content:space-between;align-items:center;color:var(--navy)}
+.s-head button{border:0;background:none;font-size:20px;color:#5a6780}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.side .chk{display:flex;align-items:center;gap:8px;margin:6px 0;font-weight:500;color:var(--ink);font-size:14px}
+.hint{font-size:12px;color:#5a6780;background:#f2f6fa;padding:10px;border-radius:8px;line-height:1.5}
+.hint code{background:#fff;padding:1px 4px;border-radius:4px;color:var(--blue)}
+
+/* modal imágenes */
+.modal{position:fixed;inset:0;background:rgba(15,25,50,.55);z-index:80;display:grid;place-items:center;padding:16px}
+.m-box{background:#fff;border-radius:14px;width:min(720px,100%);max-height:88vh;overflow:auto;padding:16px}
+.m-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:var(--navy)}
+.m-head button{border:0;background:none;font-size:20px;color:#5a6780}
+.m-acts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.m-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.m-grid button{aspect-ratio:4/3;border:3px solid transparent;border-radius:8px;background:#eee center/cover no-repeat;padding:0;cursor:pointer}
+.m-grid button:hover{border-color:var(--cyan)}
+
+.toast{position:fixed;left:50%;top:16px;transform:translate(-50%,-90px);background:var(--navy);color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;z-index:99;transition:transform .25s;pointer-events:none;max-width:90vw}
+.toast.show{transform:translate(-50%,0)}
+.toast.err{background:#c62828}
+
+/* inicio */
+.home-w{max-width:920px;margin:0 auto;padding:24px 16px 60px}
+.h-top{display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.h-top img{width:90px}
+.h-top h1{margin:0;font-family:'Josefin Sans',Montserrat,sans-serif;color:var(--navy);font-size:24px}
+.demo{display:inline-block;margin-top:4px;font-size:12px;background:#fff3cd;color:#7a5b00;padding:3px 8px;border-radius:6px}
+.h-top .lnk{margin-left:auto}
+.h-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.h-actions input{flex:1;min-width:180px;padding:9px 14px;border:1px solid #cfd8e3;border-radius:999px;font:inherit}
+.card{background:#fff;border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;box-shadow:0 2px 10px rgba(20,35,70,.06);margin-bottom:10px}
+.c-main b{color:var(--navy);font-size:16px;display:block}
+.c-main small{color:#7a869c;font-size:12px}
+.c-views{font-size:12px;color:#9aa5b8;text-align:right}
+.c-views.seen{color:#1b8a4b;font-weight:600}
+.c-btns{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.home-w .c-btns button{padding:6px 12px;font-size:12px}
+.empty-list{text-align:center;color:#7a869c;padding:40px;background:#fff;border-radius:12px}
+.login{max-width:340px;margin:12vh auto;background:#fff;padding:28px;border-radius:16px;text-align:center;display:flex;flex-direction:column;gap:12px;box-shadow:0 8px 30px rgba(20,35,70,.12)}
+.login img{width:140px;margin:0 auto}
+.login h2{margin:0;color:var(--navy);font-family:'Josefin Sans',Montserrat,sans-serif}
+.login input{padding:11px 14px;border:1px solid #cfd8e3;border-radius:10px;font:inherit}
+.login button{justify-content:center}
+.err{color:#c62828;font-size:13px;min-height:1em;margin:0}
+.loading{text-align:center;padding:60px 20px;color:#5a6780}
+
+/* ===== Impresión / PDF ===== */
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff!important}
+  .bar,.vbar,.pg-label,.im-btn,.del,.add,.addrow,.side,.modal,.toast,.xc{display:none!important}
+  .empty,.noimg{display:none!important}
+  .doc{display:block;padding:0!important}
+  .page{width:210mm;height:297mm;aspect-ratio:auto;box-shadow:none;break-after:page;page-break-after:always;outline:0!important}
+  .page:last-child{break-after:auto;page-break-after:auto}
+  .page.over:after{display:none}
+  .editing .ed{outline:0!important}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+</style>
+</head>
+<body>
+<div id="app"><div class="loading">Cargando…</div></div>
+<div id="toast" class="toast"></div>
+<script>
+/* =================== CONFIGURACIÓN =================== */
+// Pegá acá la URL /exec de tu implementación de Apps Script.
+// Si queda vacío, la app funciona en MODO DEMO (guarda solo en este navegador).
+const API_URL = 'https://script.google.com/macros/s/AKfycbzMWUTDoqnopfgHYarwdxgbf2ZO0GP9s2PHLzPK0CCWrIZ1TloR9J_b0BaIeWecNhpo/exec';
+/* ===================================================== */
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const CE = (() => { const d = document.createElement('div'); try { d.contentEditable = 'plaintext-only'; } catch (e) {} return d.contentEditable === 'plaintext-only' ? 'plaintext-only' : 'true'; })();
+const store = {
+  get(k, def) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; } catch (e) { return def; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} }
+};
+const DEMO = !API_URL;
+let KEY = store.get('soe_key', '');
+let D = null, EDIT = false, IS_TPL = false, DIRTY = false;
+
+const uid = () => Math.random().toString(36).slice(2, 7) + Date.now().toString(36).slice(-4);
+const isoLocal = d => new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+const fdate = s => { if (!s) return ''; const [y, m, d] = String(s).slice(0, 10).split('-'); return `${d}/${m}/${y}`; };
+const fdt = s => { if (!s) return ''; const d = new Date(s); if (isNaN(d)) return ''; return d.toLocaleDateString('es-PY', { day: '2-digit', month: '2-digit', year: '2-digit' }) + ' ' + d.toLocaleTimeString('es-PY', { hour: '2-digit', minute: '2-digit' }); };
+const dots = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+const waNum = s => { let n = String(s || '').replace(/\D/g, ''); if (n.startsWith('0')) n = '595' + n.slice(1); else if (n.length === 9) n = '595' + n; return n; };
+const clientLink = id => location.origin + location.pathname + '?p=' + id;
+
+function toast(msg, err) {
+  const t = $('#toast'); t.textContent = msg; t.className = 'toast show' + (err ? ' err' : '');
+  clearTimeout(t._t); t._t = setTimeout(() => t.className = 'toast', 2600);
+}
+function copyText(txt) {
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(txt).then(() => toast('Enlace copiado ✓'), () => fallbackCopy(txt));
+  fallbackCopy(txt);
+}
+function fallbackCopy(txt) {
+  const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); toast('Enlace copiado ✓'); } catch (e) { prompt('Copiá el enlace:', txt); }
+  ta.remove();
+}
+
+/* =================== API =================== */
+async function api(action, payload = {}) {
+  if (DEMO) return demoApi(action, payload);
+  const r = await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action, key: KEY, ...payload }) });
+  const j = await r.json();
+  if (j.auth === false) { store.del('soe_key'); KEY = ''; }
+  return j;
+}
+function demoApi(a, p) {
+  const docs = store.get('soe_docs', {});
+  switch (a) {
+    case 'login': return { ok: true };
+    case 'list': return { ok: true, items: Object.values(docs).map(d => ({ id: d.id, cliente: d.cliente.nombre, tipo: d.cliente.tipo, contacto: d.cliente.contacto, tel: d.cliente.tel, actualizada: d._upd, vistas: d._vistas || 0, ultima: d._ultima || '' })).sort((x, y) => String(y.actualizada).localeCompare(String(x.actualizada))) };
+    case 'get': return docs[p.id] ? { ok: true, doc: docs[p.id] } : { ok: false, error: 'No encontrada' };
+    case 'view': if (docs[p.id]) { docs[p.id]._vistas = (docs[p.id]._vistas || 0) + 1; docs[p.id]._ultima = new Date().toISOString(); store.set('soe_docs', docs); } return { ok: true };
+    case 'save': { const old = docs[p.doc.id] || {}; docs[p.doc.id] = { ...p.doc, _upd: new Date().toISOString(), _vistas: old._vistas || 0, _ultima: old._ultima || '' }; return store.set('soe_docs', docs) ? { ok: true } : { ok: false, error: 'El navegador se quedó sin espacio (demasiadas imágenes en modo demo)' }; }
+    case 'delete': delete docs[p.id]; store.set('soe_docs', docs); return { ok: true };
+    case 'getTemplate': return { ok: true, doc: store.get('soe_tpl', null) };
+    case 'saveTemplate': return store.set('soe_tpl', p.doc) ? { ok: true } : { ok: false, error: 'El navegador se quedó sin espacio' };
+    case 'gallery': return { ok: true, items: store.get('soe_gal', []) };
+    case 'upload': { const g = store.get('soe_gal', []); g.unshift(p.dataUrl); store.set('soe_gal', g.slice(0, 12)); return { ok: true, url: p.dataUrl }; }
+  }
+  return { ok: false, error: 'Acción desconocida' };
+}
+
+/* =================== CONTENIDO BASE =================== */
+const BASE_IMGS = ['img/portada.jpg', 'img/doctora.jpg', 'img/digital.jpg', 'img/odontologia.jpg', 'img/laser.jpg', 'img/salon.jpg', 'img/reuniones.jpg', 'img/auditorio.jpg'];
+const PAGES = [
+  { id: 'portada', name: 'Portada' }, { id: 'quienes', name: '¿Quiénes somos?' }, { id: 'porque', name: '¿Por qué SOE?' },
+  { id: 'digital', name: 'SOE Digital' }, { id: 'odonto', name: 'SOE Odontología' }, { id: 'laser', name: 'SOE Láser' },
+  { id: 'estetica', name: 'SOE Estética' }, { id: 'networking', name: 'SOE Networking (espacios)' }, { id: 'benef', name: 'Beneficios corporativos' },
+  { id: 'testi', name: 'Testimonios / antes y después' }, { id: 'prop', name: 'Propuesta comercial' }, { id: 'contra', name: 'Contratapa' }
+];
+function makeDefault() {
+  const it = (t, d = '') => ({ t, d });
+  const now = new Date();
+  return {
+    v: 1, id: '', cliente: { nombre: '', tipo: 'empresa', contacto: '', tel: '' },
+    fecha: isoLocal(now), validez: isoLocal(new Date(now.getTime() + 30 * 864e5)),
+    pages: { portada: true, quienes: true, porque: true, digital: true, odonto: true, laser: true, estetica: false, networking: true, benef: true, testi: false, prop: true, contra: true },
+    t: {
+      'g.dir': 'San Blas 2345 c/ Aviadores del Chaco', 'g.tel': '0981 151 393', 'g.wa': '0981 151 393',
+      'portada.titulo': 'Clínica SOE Health Care', 'portada.sub': 'Salud y Odontología Estética',
+      'portada.claim': 'Todas las especialidades en un solo lugar, cuidando tu salud y bienestar.', 'portada.para': 'Propuesta preparada para',
+      'quienes.chip': '¿Quiénes somos?',
+      'quienes.lead': 'Una clínica integral de salud, odontología y alta estética facial, en el corazón del eje corporativo.',
+      'quienes.texto': 'Buscamos la armonía y el equilibrio para llegar al bienestar de cada paciente, elevando su autoestima y su calidad de vida.\n\nNos dedicamos a la Rehabilitación Orofuncional: tratamos la boca en su relación con la cara, el cuello, la articulación temporomandibular (ATM), la columna cervical y el equilibrio postural en general.',
+      'porque.chip': '¿Por qué SOE?', 'porque.titulo': 'Tu salud integral, en un solo lugar',
+      'porque.frase': 'Evaluamos, diagnosticamos y realizamos un plan de tratamiento para cada caso. Lograr la óptima armonía dentofacial es nuestro compromiso.',
+      'digital.chip': 'SOE Digital', 'digital.band': 'Nuestras especialidades', 'digital.titulo': 'Mirá tu nueva sonrisa antes de empezar',
+      'digital.texto': 'Con el diseño de sonrisa digital 3D podés visualizar y personalizar tu resultado antes de comenzar cualquier procedimiento.',
+      'odonto.chip': 'SOE Odontología', 'odonto.band': 'Nuestras especialidades', 'odonto.titulo': 'Cuidado dental integral para toda la familia',
+      'odonto.texto': 'De la odontopediatría a la odontogeriatría: todas las especialidades con un mismo equipo y un plan de tratamiento para cada caso.',
+      'laser.chip': 'SOE Láser', 'laser.band': 'Nuestras especialidades', 'laser.titulo': '¿Dolor de mandíbula, cuello o cabeza?',
+      'laser.texto': 'Muchas veces el origen está en la boca y la ATM. Con tecnología láser y fisioterapia tratamos el dolor y acompañamos la recuperación.',
+      'estetica.chip': 'SOE Estética', 'estetica.band': 'Nuestras especialidades', 'estetica.titulo': 'Armonía entre tu sonrisa y tu rostro',
+      'estetica.texto': 'Tratamientos de alta estética facial que buscan el equilibrio y la armonía, para elevar tu autoestima y tu calidad de vida.',
+      'networking.chip': 'SOE Networking', 'networking.band': 'Nuestros espacios', 'networking.titulo': 'Espacios para tu empresa',
+      'networking.texto': 'Auditorio, salón de eventos y sala de reuniones dentro de la clínica, ideales para capacitaciones, charlas de salud y encuentros corporativos.',
+      'benef.chip': 'Beneficios corporativos', 'benef.titulo': 'Aranceles preferenciales y descuentos especiales para los colaboradores de {cliente}',
+      'benef.big': 'Hasta 40%', 'benef.bigtxt': 'de descuento en tratamientos específicos',
+      'benef.cuotas': 'Hasta 12 cuotas', 'benef.cuotastxt': 'sin intereses con tarjeta de crédito',
+      'benef.pasos.t': 'Cómo usar tu beneficio', 'benef.frase': '"Todas las especialidades en un solo lugar cuidando tu salud y bienestar."',
+      'testi.chip': 'Testimonios', 'testi.titulo': 'Sonrisas que hablan por nosotros', 'testi.ab': 'Antes y después',
+      'prop.chip': 'Propuesta comercial',
+      'prop.intro': 'Gracias por su interés en Clínica SOE Health Care. A continuación presentamos los beneficios preferenciales para {cliente}.',
+      'prop.nota': '* Precios en guaraníes. Los tratamientos están sujetos a evaluación clínica previa.',
+      'prop.pagos.t': 'Formas de pago', 'prop.pagos': 'Efectivo, transferencia bancaria y tarjetas.\nHasta 12 cuotas sin intereses con tarjeta de crédito.',
+      'prop.cond.t': 'Condiciones', 'prop.cond': 'Beneficio válido presentando credencial de colaborador.\nNo acumulable con otras promociones.',
+      'prop.firma.t': 'Atención corporativa', 'prop.firma': 'Clínica SOE Health Care\n0981 151 393',
+      'prop.cta': 'Quiero agendar una evaluación',
+      'contra.cta': 'Agendá tu evaluación', 'contra.qr': 'Escaneá el código y escribinos por WhatsApp',
+      'contra.ig': '', 'contra.web': '', 'contra.horario': ''
+    },
+    l: {
+      'quienes.pilares': [it('Rehabilitación orofuncional', 'Boca, cara, cuello y postura tratados de forma integral.'), it('Diseño de sonrisa 3D', 'Ves y personalizás tu resultado antes de empezar.'), it('Tecnología láser', 'Tratamientos no convencionales de última generación.')],
+      'porque.items': [it('Todas las especialidades', 'Odontología, láser, fisioterapia y estética facial sin cambiar de clínica.'), it('Planificación digital', 'Diseño de sonrisa 3D y laboratorio digital.'), it('Un plan para cada caso', 'Evaluamos y diagnosticamos antes de proponer cualquier tratamiento.'), it('Cerca tuyo', 'En el eje corporativo: San Blas 2345 c/ Aviadores del Chaco.')],
+      'porque.cifras': [it('', 'años de experiencia'), it('', 'pacientes atendidos'), it('', 'especialidades')],
+      'digital.items': [it('Diseño de sonrisa digital 3D', 'Visualizás tu nueva sonrisa desde la primera consulta.'), it('Laboratorio digital', 'Trabajos planificados en forma digital, con mayor precisión.')],
+      'odonto.items': ['Cirugía', 'Cirugía mayor', 'Implantes', 'Periodoncia', 'Prótesis', 'Ortodoncia', 'Endodoncia', 'Odontopediatría', 'Odontogeriatría', 'Diseño de sonrisa con IA'].map(x => it(x)),
+      'laser.items': [it('Odontología láser'), it('Regeneración celular', 'Postquirúrgica y en lesiones postraumáticas.'), it('Tratamiento del dolor'), it('Fisioterapia')],
+      'estetica.items': [it('Armonización orofacial'), it(''), it('')],
+      'networking.items': [it('Auditorio'), it('Salón de eventos'), it('Sala de reuniones'), it('Consultorios')],
+      'benef.pasos': [it('Agendá', 'Escribinos por WhatsApp y mencioná el convenio {cliente}.'), it('Presentá tu credencial', 'Identificate como colaborador el día de tu consulta.'), it('Recibí tu beneficio', 'Aplicamos el descuento en los tratamientos incluidos.')],
+      'testi.items': [it('', ''), it('', '')]
+    },
+    img: {
+      'portada.foto': 'img/portada.jpg', 'quienes.foto': 'img/doctora.jpg', 'porque.img1': '', 'porque.img2': '',
+      'digital.foto': 'img/digital.jpg', 'digital.extra1': '', 'digital.extra2': '',
+      'odonto.foto': 'img/odontologia.jpg', 'odonto.extra1': '', 'odonto.extra2': '',
+      'laser.foto': 'img/laser.jpg', 'laser.extra1': '', 'laser.extra2': '',
+      'estetica.foto': '', 'estetica.extra1': '', 'estetica.extra2': '',
+      'networking.foto1': 'img/salon.jpg', 'networking.foto2': 'img/reuniones.jpg', 'networking.foto3': 'img/auditorio.jpg',
+      'testi.antes1': '', 'testi.despues1': '', 'testi.antes2': '', 'testi.despues2': ''
+    },
+    rows: [
+      { trat: 'Consulta y diagnóstico', arancel: '', desc: '' },
+      { trat: 'Limpieza y profilaxis', arancel: '', desc: '' },
+      { trat: 'Diseño de sonrisa digital 3D', arancel: '', desc: '' },
+      { trat: 'Ortodoncia', arancel: '', desc: '' },
+      { trat: 'Implantes', arancel: '', desc: '' }
+    ]
+  };
+}
+function hydrate(doc) {
+  const def = makeDefault(); doc = doc || {};
+  return { ...def, ...doc, cliente: { ...def.cliente, ...(doc.cliente || {}) }, pages: { ...def.pages, ...(doc.pages || {}) }, t: { ...def.t, ...(doc.t || {}) }, l: { ...def.l, ...(doc.l || {}) }, img: { ...def.img, ...(doc.img || {}) }, rows: doc.rows || def.rows };
+}
+
+/* =================== PIEZAS DE LAS HOJAS =================== */
+const IC = {
+  pin: '<svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>',
+  tel: '<svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>',
+  ig: '<svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>',
+  web: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3zm.8 2h3a15.7 15.7 0 0 0 1.4 3.6A8 8 0 0 1 5.1 16zm3-8h-3a8 8 0 0 1 4.4-3.6A15.7 15.7 0 0 0 8.1 8zM12 20c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h3a8 8 0 0 1-4.4 3.6zM16.3 14a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4z"/></svg>',
+  clock: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.4 3.2 3.2-1.4 1.4-3.8-3.8V6h2z"/></svg>',
+  check: '<svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>',
+  wa: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6-.3.3c-.1.1-.2.3-.1.5.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>',
+  dl: '<svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>'
+};
+function fmt(s) {
+  let h = esc(s);
+  if (!EDIT) h = h.split('{cliente}').join(`<b class="cli">${esc(D.cliente.nombre || '')}</b>`);
+  return h;
+}
+const ceAttr = () => EDIT ? `contenteditable="${CE}" spellcheck="true"` : '';
+function T(k, tag = 'div', cls = '', ph = '') {
+  const v = D.t[k] ?? '';
+  return `<${tag} class="ed ${cls}${String(v).trim() ? '' : ' empty'}" data-t="${k}" data-ph="${esc(ph || 'Escribí aquí…')}" ${ceAttr()}>${fmt(v)}</${tag}>`;
+}
+function I(k, cls = '', label = '') {
+  const u = D.img[k] || '';
+  return `<div class="im ${cls}${u ? '' : ' noimg'}" ${u ? `style="background-image:url('${u}')"` : ''}>${label ? `<span class="im-lab">${esc(label)}</span>` : ''}${EDIT ? `<button class="im-btn" data-pick="${k}">${u ? '📷 Cambiar' : '+ Agregar imagen'}</button>` : ''}</div>`;
+}
+function L(k, cls = '', o = {}) {
+  const items = D.l[k] || [];
+  const icon = !/cards|stats|steps|quotes/.test(cls);
+  return `<ul class="list ${cls}">${items.map((it, i) => `<li class="${String(it.t || '').trim() ? '' : 'empty'}">${icon ? `<i class="ck">${IC.check}</i>` : ''}<div class="lb"><span class="ed lt" ${ceAttr()} data-l="${k}" data-i="${i}" data-f="t" data-ph="${esc(o.phT || 'Título')}">${fmt(it.t)}</span>${o.noD ? '' : `<span class="ed ld${String(it.d || '').trim() ? '' : ' empty'}" ${ceAttr()} data-l="${k}" data-i="${i}" data-f="d" data-ph="${esc(o.phD || 'Descripción (opcional)')}">${fmt(it.d || '')}</span>`}</div>${EDIT ? `<button class="del" data-dell="${k}" data-i="${i}" title="Quitar">×</button>` : ''}</li>`).join('')}${EDIT ? `<li class="add"><button data-addl="${k}">+ Agregar</button></li>` : ''}</ul>`;
+}
+const head = k => `<header class="phead"><img class="logo-s" src="img/logo.png" alt="Clínica SOE"><div class="chip-t">${T(k, 'span')}</div></header>`;
+const foot = () => `<footer class="pfoot"><span class="fi">${IC.pin}${T('g.dir', 'span')}</span><span class="sep">|</span><span class="fi">${IC.tel}${T('g.tel', 'span')}</span></footer>`;
+const waves = () => `<div class="wv"><svg viewBox="0 0 600 90" preserveAspectRatio="none"><path d="M0 58 C140 8 330 110 600 28 L600 90 L0 90Z" fill="#56c3d1" opacity=".55"/><path d="M0 78 C180 40 400 108 600 52 L600 90 L0 90Z" fill="#283b8b"/></svg></div>`;
+const pg = (id, inner) => `<section class="page pg-${id}" data-page="${id}">${inner}</section>`;
+const waClinic = (msg) => `https://wa.me/${waNum(D.t['g.wa'])}?text=${encodeURIComponent(msg || `Hola! Recibí la propuesta de Clínica SOE Health Care${D.cliente.nombre ? ' para ' + D.cliente.nombre : ''} y quiero más información.`)}`;
+const qrUrl = () => `https://api.qrserver.com/v1/create-qr-code/?size=400x400&margin=0&color=283b8b&data=${encodeURIComponent('https://wa.me/' + waNum(D.t['g.wa']))}`;
+
+function numOf(s) { return parseInt(String(s || '').replace(/\D/g, ''), 10) || 0; }
+function conv(r) {
+  const n = numOf(r.arancel), d = parseFloat(String(r.desc || '').replace(',', '.')) || 0;
+  if (!n) return '—';
+  return 'Gs. ' + dots(Math.round(n * (1 - d / 100)));
+}
+function rowHtml(r, i) {
+  if (!EDIT) {
+    const n = numOf(r.arancel);
+    return `<tr class="${String(r.trat || '').trim() ? '' : 'empty'}"><td>${esc(r.trat)}</td><td>${n ? 'Gs. ' + dots(n) : (esc(r.arancel) || '—')}</td><td class="dc">${String(r.desc || '').trim() ? esc(r.desc) + '%' : '—'}</td><td class="cv">${conv(r)}</td></tr>`;
+  }
+  const c = ceAttr();
+  return `<tr><td><span class="ed" ${c} data-r="${i}" data-f="trat" data-ph="Tratamiento">${esc(r.trat)}</span></td><td><span class="ed" ${c} data-r="${i}" data-f="arancel" data-ph="350.000">${esc(r.arancel)}</span></td><td class="dc"><span class="ed" ${c} data-r="${i}" data-f="desc" data-ph="0">${esc(r.desc)}</span>%</td><td class="cv" data-conv="${i}">${conv(r)}</td><td class="xc"><button class="del in" data-delrow="${i}" title="Quitar fila">×</button></td></tr>`;
+}
+const spec = (id, cols = 'c2', o = {}) => pg(id, head(id + '.chip') + I(id + '.foto', 'hero') + `<div class="band">${T(id + '.band', 'span')}</div><div class="pbody">${T(id + '.titulo', 'h2', 'ttl', 'Título')}${T(id + '.texto', 'p', 'txt', 'Texto descriptivo')}${L(id + '.items', cols, o)}<div class="gal">${I(id + '.extra1')}${I(id + '.extra2')}</div></div>` + waves() + foot());
+
+const R = {
+  portada: () => pg('portada', I('portada.foto', 'cov-img') + `<img class="cov-logo" src="img/logo.png" alt="Clínica SOE"><div class="pbody cov-b">${T('portada.titulo', 'h1', 'cov-title')}${T('portada.sub', 'div', 'cov-sub')}${T('portada.claim', 'p', 'cov-claim')}${D.cliente.nombre && !IS_TPL ? `<div class="cov-para">${T('portada.para', 'span')}<b>${esc(D.cliente.nombre)}</b></div>` : ''}</div><img class="cov-tree" src="img/tree.png" alt="">` + waves() + foot()),
+  quienes: () => pg('quienes', head('quienes.chip') + `<div class="pbody"><div class="q-grid">${I('quienes.foto', 'q-img')}<div class="q-txt">${T('quienes.lead', 'h2', 'ttl sm')}${T('quienes.texto', 'p', 'txt')}</div></div>${L('quienes.pilares', 'c3 cards')}</div>` + waves() + foot()),
+  porque: () => pg('porque', head('porque.chip') + `<div class="pbody">${T('porque.titulo', 'h2', 'ttl')}${L('porque.items', 'c2 cards')}${L('porque.cifras', 'c3 stats', { phT: '+10', phD: 'años de experiencia' })}<div class="gal">${I('porque.img1')}${I('porque.img2')}</div>${T('porque.frase', 'p', 'quote')}</div>` + waves() + foot()),
+  digital: () => spec('digital'),
+  odonto: () => spec('odonto', 'c3', { noD: true }),
+  laser: () => spec('laser'),
+  estetica: () => spec('estetica'),
+  networking: () => pg('networking', head('networking.chip') + `<div class="net">${I('networking.foto1', 'n1')}${I('networking.foto2', 'n2')}${I('networking.foto3', 'n3')}</div><div class="band">${T('networking.band', 'span')}</div><div class="pbody">${T('networking.titulo', 'h2', 'ttl')}${T('networking.texto', 'p', 'txt')}${L('networking.items', 'c2', { noD: true })}</div>` + waves() + foot()),
+  benef: () => pg('benef', head('benef.chip') + `<div class="pbody">${T('benef.titulo', 'h2', 'ttl')}<div class="big2"><div class="bc b1">${T('benef.big', 'div', 'bn')}${T('benef.bigtxt', 'div', 'bt')}</div><div class="bc b2">${T('benef.cuotas', 'div', 'bn')}${T('benef.cuotastxt', 'div', 'bt')}</div></div>${T('benef.pasos.t', 'h3', 'sub')}${L('benef.pasos', 'c3 steps')}${T('benef.frase', 'p', 'quote')}</div>` + waves() + foot()),
+  testi: () => pg('testi', head('testi.chip') + `<div class="pbody">${T('testi.titulo', 'h2', 'ttl')}${L('testi.items', 'c1 quotes', { phT: 'Testimonio del paciente…', phD: 'Nombre · tratamiento' })}${T('testi.ab', 'h3', 'sub')}<div class="gal">${I('testi.antes1', '', 'Antes')}${I('testi.despues1', '', 'Después')}${I('testi.antes2', '', 'Antes')}${I('testi.despues2', '', 'Después')}</div></div>` + waves() + foot()),
+  prop: () => {
+    const c = D.cliente;
+    const meta = (lab, val) => `<div class="mt${val ? '' : ' empty'}"><small>${lab}</small><b>${esc(val)}</b></div>`;
+    return pg('prop', head('prop.chip') + `<div class="pbody">
+      <div class="meta" ${EDIT ? 'data-side title="Tocá para editar los datos del cliente"' : ''}>${meta('Para', c.nombre || (EDIT ? '(tocá para poner el cliente)' : ''))}${meta('Atención', c.contacto)}${meta('Fecha', fdate(D.fecha))}${meta('Válida hasta', fdate(D.validez))}</div>
+      ${T('prop.intro', 'p', 'txt')}
+      <table class="pt"><thead><tr><th>Tratamiento</th><th>Arancel</th><th>Desc.</th><th>Precio convenio</th>${EDIT ? '<th class="xc"></th>' : ''}</tr></thead><tbody>${D.rows.map(rowHtml).join('')}</tbody></table>
+      ${EDIT ? '<button class="addrow" data-addrow>+ Agregar tratamiento</button>' : ''}
+      ${T('prop.nota', 'p', 'nota')}
+      <div class="cols2"><div>${T('prop.pagos.t', 'h3', 'sub')}${T('prop.pagos', 'p', 'txt sm')}</div><div>${T('prop.cond.t', 'h3', 'sub')}${T('prop.cond', 'p', 'txt sm')}</div></div>
+      <div class="firma"><div>${T('prop.firma.t', 'b')}${T('prop.firma', 'p', 'txt sm')}</div>${EDIT ? `<div class="cta">${IC.wa}${T('prop.cta', 'span')}</div>` : `<a class="cta" href="${waClinic()}" target="_blank" rel="noopener">${IC.wa}<span>${esc(D.t['prop.cta'])}</span></a>`}</div>
+    </div>` + foot());
+  },
+  contra: () => {
+    const inf = (ic, k, ph) => `<div class="inf${String(D.t[k] || '').trim() ? '' : ' empty'}">${ic}${T(k, 'span', '', ph)}</div>`;
+    return pg('contra', `<div class="pbody ct"><img class="ct-logo" src="img/logo.png" alt="Clínica SOE">${T('contra.cta', 'h2', 'ttl')}<div class="qr"><img src="${qrUrl()}" alt="QR WhatsApp">${T('contra.qr', 'p')}</div><div class="infs">${inf(IC.pin, 'g.dir', 'Dirección')}${inf(IC.tel, 'g.tel', 'Teléfono')}${inf(IC.ig, 'contra.ig', '@instagram de la clínica')}${inf(IC.web, 'contra.web', 'sitio web')}${inf(IC.clock, 'contra.horario', 'Horario de atención')}</div><img class="ct-tree" src="img/tree.png" alt=""></div>` + waves() + `<footer class="pfoot">${T('portada.claim', 'span')}</footer>`);
+  }
+};
+
+function renderDoc() {
+  const vis = PAGES.filter(p => D.pages[p.id]);
+  $('#doc').innerHTML = vis.map((p, i) => (EDIT ? `<div class="pg-label"><span>Hoja ${i + 1} · ${p.name}</span><button data-hide="${p.id}">Ocultar hoja</button></div>` : '') + R[p.id]()).join('');
+  requestAnimationFrame(checkOverflow);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(checkOverflow);
+}
+function rerender() { const y = scrollY; renderDoc(); scrollTo(0, y); }
+let rrT; function rerenderSoon() { clearTimeout(rrT); rrT = setTimeout(rerender, 300); }
+function checkOverflow() {
+  // mide como se verá la versión final (sin botones ni espacios vacíos de edición)
+  if (!EDIT) { $$('.page.over').forEach(p => p.classList.remove('over')); return; }
+  document.body.classList.add('measure');
+  const res = $$('.page').map(p => { const b = p.querySelector('.pbody'); return [p, !!(b && b.scrollHeight > b.clientHeight + 2)]; });
+  document.body.classList.remove('measure');
+  res.forEach(([p, o]) => p.classList.toggle('over', o));
+}
+
+/* =================== EDITOR =================== */
+function setState(s) { const e = $('#bState'); if (e) e.textContent = s; }
+function dirty() { DIRTY = true; setState('Cambios sin guardar'); }
+function updTitle() { const e = $('#bTitle'); if (e) e.textContent = IS_TPL ? 'Plantilla base' : (D.cliente.nombre || 'Nueva propuesta'); }
+function fitBar() { const b = $('.bar'), d = $('#doc'); if (b && d) d.style.paddingTop = (b.offsetHeight + 18) + 'px'; }
+
+function showEditor(doc, isTpl) {
+  D = hydrate(doc); IS_TPL = isTpl; EDIT = true; DIRTY = false;
+  document.body.className = 'editing';
+  $('#app').innerHTML = `
+  <div class="bar">
+    <button data-act="back">← Volver</button>
+    <div class="b-title"><b id="bTitle"></b><small id="bState">${isTpl ? 'Lo que guardes acá será la base de cada propuesta nueva' : 'Tocá cualquier texto o foto para editar'}</small></div>
+    <div class="b-btns">
+      <button data-act="side">⚙ ${isTpl ? 'Hojas' : 'Cliente y hojas'}</button>
+      <button data-act="preview">👁 Ver como cliente</button>
+      <button data-act="pdf">${IC.dl} PDF</button>
+      ${isTpl ? '' : `<button data-act="link">🔗 Copiar enlace</button><button data-act="wa" class="wa">${IC.wa} WhatsApp</button>`}
+      <button data-act="save" class="pri">Guardar</button>
+    </div>
+    <div class="prev-only"><span>Así lo ve el cliente</span><button data-act="edit" class="pri">✎ Volver a editar</button></div>
+  </div>
+  <aside class="side" id="side"></aside>
+  <main id="doc" class="doc"></main>
+  <div class="vbar"><button data-act="pdf">${IC.dl} Descargar PDF</button><a class="wa" target="_blank" rel="noopener" id="vWa">${IC.wa} Agendar por WhatsApp</a></div>`;
+  updTitle(); renderSide(); renderDoc(); bindDoc(); bindSide(); fitBar();
+}
+function setPreview(on) {
+  EDIT = !on; document.body.className = on ? 'viewing' : 'editing';
+  $('#vWa').href = waClinic(); renderDoc(); fitBar(); scrollTo(0, 0);
+}
+
+function bindDoc() {
+  const doc = $('#doc');
+  doc.addEventListener('input', e => {
+    const el = e.target.closest('[contenteditable]'); if (!el) return;
+    const val = el.innerText.replace(/\n$/, '');
+    if (el.dataset.t) { D.t[el.dataset.t] = val; $$(`[data-t="${el.dataset.t}"]`).forEach(o => { if (o !== el) o.textContent = val; }); }
+    else if (el.dataset.l) { D.l[el.dataset.l][+el.dataset.i][el.dataset.f] = val; }
+    else if (el.dataset.r !== undefined) { const i = +el.dataset.r; D.rows[i][el.dataset.f] = val; const c = $(`[data-conv="${i}"]`); if (c) c.textContent = conv(D.rows[i]); }
+    el.classList.toggle('empty', !val.trim());
+    dirty(); checkOverflow();
+  });
+  doc.addEventListener('paste', e => {
+    if (CE !== 'true') return;
+    const el = e.target.closest('[contenteditable]'); if (!el) return;
+    e.preventDefault(); document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text'));
+  });
+  doc.addEventListener('click', e => {
+    if (!EDIT) return;
+    const b = e.target.closest('button,[data-side]'); if (!b) return;
+    const ds = b.dataset;
+    if (ds.addl) { (D.l[ds.addl] = D.l[ds.addl] || []).push({ t: '', d: '' }); dirty(); rerender(); }
+    else if (ds.dell) { D.l[ds.dell].splice(+ds.i, 1); dirty(); rerender(); }
+    else if (ds.pick) pickImage(ds.pick);
+    else if (ds.hide) { D.pages[ds.hide] = false; dirty(); rerender(); renderSide(); toast('Hoja oculta. La podés volver a activar en ⚙'); }
+    else if (ds.addrow !== undefined) { D.rows.push({ trat: '', arancel: '', desc: '' }); dirty(); rerender(); }
+    else if (ds.delrow !== undefined) { D.rows.splice(+ds.delrow, 1); dirty(); rerender(); }
+    else if (ds.side !== undefined) $('#side').classList.add('open');
+  });
+}
+
+function renderSide() {
+  const c = D.cliente;
+  $('#side').innerHTML = `<div class="s-head"><b>${IS_TPL ? 'Plantilla base' : 'Datos de la propuesta'}</b><button data-close>✕</button></div>
+  ${IS_TPL ? '<p class="hint">Todo lo que cambies en la plantilla será el punto de partida de cada propuesta nueva. Las propuestas ya enviadas no cambian.</p>' : `
+  <label>Cliente (empresa o persona)<input data-c="nombre" value="${esc(c.nombre)}" placeholder="Ej: Banco Itaú"></label>
+  <label>Tipo de cliente<select data-c="tipo"><option value="empresa"${c.tipo === 'empresa' ? ' selected' : ''}>Empresa</option><option value="persona"${c.tipo === 'persona' ? ' selected' : ''}>Persona física</option></select></label>
+  <label>Atención (a quién va dirigida)<input data-c="contacto" value="${esc(c.contacto)}" placeholder="Ej: Lic. María González – RR.HH."></label>
+  <label>WhatsApp del cliente<input data-c="tel" inputmode="tel" value="${esc(c.tel)}" placeholder="0981 123 456"></label>
+  <div class="row2"><label>Fecha<input type="date" data-m="fecha" value="${esc(D.fecha)}"></label><label>Válida hasta<input type="date" data-m="validez" value="${esc(D.validez)}"></label></div>`}
+  <h4>Hojas del brochure</h4>
+  ${PAGES.map(p => `<label class="chk"><input type="checkbox" data-pg="${p.id}"${D.pages[p.id] ? ' checked' : ''}> ${p.name}</label>`).join('')}
+  <h4>Datos de la clínica</h4>
+  <label>WhatsApp de la clínica (botones y QR)<input data-gt="g.wa" inputmode="tel" value="${esc(D.t['g.wa'])}"></label>
+  <p class="hint">💡 Escribí <code>{cliente}</code> en cualquier texto y en la propuesta aparece el nombre del cliente.</p>
+  <p class="hint">Tocá cualquier texto para editarlo y el botón <b>📷 Cambiar</b> de cada foto para reemplazarla. Los espacios vacíos no se ven en la versión final.</p>`;
+}
+function bindSide() {
+  const s = $('#side');
+  s.addEventListener('click', e => { if (e.target.closest('[data-close]')) s.classList.remove('open'); });
+  s.addEventListener('input', e => {
+    const t = e.target, ds = t.dataset;
+    if (ds.c) {
+      D.cliente[ds.c] = t.value;
+      if (ds.c === 'tipo') { const emp = t.value === 'empresa'; D.pages.benef = emp; D.pages.networking = emp; renderSide(); }
+      updTitle();
+    } else if (ds.m) D[ds.m] = t.value;
+    else if (ds.pg) D.pages[ds.pg] = t.checked;
+    else if (ds.gt) D.t[ds.gt] = t.value;
+    else return;
+    dirty(); rerenderSoon();
+  });
+}
+
+async function save() {
+  setState('Guardando…');
+  const doc = JSON.parse(JSON.stringify(D)); delete doc._vistas; delete doc._ultima; delete doc._upd; delete doc._saved;
+  const r = await api(IS_TPL ? 'saveTemplate' : 'save', { doc }).catch(() => ({ ok: false, error: 'Sin conexión' }));
+  if (r.ok) { DIRTY = false; setState('Guardado ✓ ' + new Date().toLocaleTimeString('es-PY', { hour: '2-digit', minute: '2-digit' })); toast('Guardado ✓'); return true; }
+  setState('No se pudo guardar'); toast(r.error || 'No se pudo guardar', true); return false;
+}
+function shareMsg(nombre, contacto, id) {
+  return `Hola${contacto ? ' ' + contacto : ''}! 👋 Te compartimos la propuesta de *Clínica SOE Health Care*${nombre ? ' para ' + nombre : ''}.\n\nPodés verla y descargarla acá:\n${clientLink(id)}`;
+}
+const waShare = (tel, msg) => `https://wa.me/${tel ? waNum(tel) : ''}?text=${encodeURIComponent(msg)}`;
+
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const a = b.dataset.act;
+  if (a === 'back') { if (DIRTY && !confirm('Tenés cambios sin guardar. ¿Salir igual?')) return; DIRTY = false; showHome(); }
+  else if (a === 'side') $('#side').classList.add('open');
+  else if (a === 'save') save();
+  else if (a === 'preview') setPreview(true);
+  else if (a === 'edit') setPreview(false);
+  else if (a === 'pdf') { const t = document.title; document.title = 'Propuesta SOE' + (D && D.cliente.nombre ? ' - ' + D.cliente.nombre : ''); window.print(); setTimeout(() => document.title = t, 1000); }
+  else if (a === 'link' || a === 'wa') {
+    if (!D.cliente.nombre.trim()) { toast('Primero poné el nombre del cliente', true); $('#side').classList.add('open'); return; }
+    const w = a === 'wa' ? window.open('', '_blank') : null;
+    if (DIRTY || !D._saved) { const ok = await save(); if (!ok) { if (w) w.close(); return; } D._saved = true; }
+    if (a === 'link') copyText(clientLink(D.id));
+    else { const url = waShare(D.cliente.tel, shareMsg(D.cliente.nombre, D.cliente.contacto, D.id)); if (w) w.location = url; else location.href = url; }
+  }
+});
+window.addEventListener('beforeunload', e => { if (DIRTY) { e.preventDefault(); e.returnValue = ''; } });
+window.addEventListener('resize', () => { fitBar(); checkOverflow(); });
+
+/* =================== IMÁGENES =================== */
+function resizeImg(file, max, q) {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => {
+      let w = img.naturalWidth, h = img.naturalHeight; const s = Math.min(1, max / Math.max(w, h));
+      w = Math.round(w * s); h = Math.round(h * s);
+      const c = document.createElement('canvas'); c.width = w; c.height = h;
+      const ctx = c.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); ctx.drawImage(img, 0, 0, w, h);
+      URL.revokeObjectURL(img.src); res(c.toDataURL('image/jpeg', q));
+    };
+    img.onerror = () => rej(new Error('El archivo no es una imagen válida'));
+    img.src = URL.createObjectURL(file);
+  });
+}
+async function uploadFile(f) {
+  const dataUrl = await resizeImg(f, DEMO ? 1200 : 1800, DEMO ? 0.72 : 0.85);
+  const r = DEMO ? await api('upload', { dataUrl }) : await api('upload', { name: f.name.replace(/\.[^.]+$/, '') + '.jpg', mime: 'image/jpeg', data: dataUrl.split(',')[1] });
+  if (!r.ok) throw new Error(r.error || 'error');
+  return r.url;
+}
+async function pickImage(k) {
+  const m = document.createElement('div'); m.className = 'modal';
+  m.innerHTML = `<div class="m-box"><div class="m-head"><b>Elegir imagen</b><button data-x>✕</button></div><div class="m-acts"><label class="btn pri">⬆ Subir desde el celular o PC<input type="file" accept="image/*" hidden></label>${D.img[k] ? '<button data-rm class="danger">Quitar imagen</button>' : ''}</div><div class="m-grid"><div class="loading">Cargando galería…</div></div></div>`;
+  document.body.appendChild(m);
+  const g = await api('gallery').catch(() => ({ items: [] }));
+  const imgs = [...new Set([...(g.items || []), ...BASE_IMGS])];
+  $('.m-grid', m).innerHTML = imgs.map(u => `<button data-u="${esc(u)}" style="background-image:url('${u}')"></button>`).join('');
+  m.addEventListener('click', e => {
+    if (e.target === m || e.target.closest('[data-x]')) return m.remove();
+    const b = e.target.closest('[data-u]'); if (b) { setImg(k, b.dataset.u); m.remove(); }
+    if (e.target.closest('[data-rm]')) { setImg(k, ''); m.remove(); }
+  });
+  $('input', m).addEventListener('change', async e => {
+    const f = e.target.files[0]; if (!f) return;
+    $('.m-acts', m).innerHTML = '<span>Subiendo imagen…</span>';
+    try { setImg(k, await uploadFile(f)); } catch (err) { toast('No se pudo subir: ' + err.message, true); }
+    m.remove();
+  });
+}
+function setImg(k, u) { D.img[k] = u; dirty(); rerender(); }
+
+/* =================== INICIO (lista) =================== */
+async function showHome() {
+  EDIT = false; D = null; document.body.className = 'home';
+  $('#app').innerHTML = `<div class="home-w">
+    <header class="h-top"><img src="img/logo.png" alt="Clínica SOE"><div><h1>Brochures y propuestas</h1>${DEMO ? '<span class="demo">Modo demo: se guarda solo en este navegador</span>' : ''}</div>${DEMO ? '' : '<button class="lnk" id="hOut">Salir</button>'}</header>
+    <div class="h-actions"><button class="pri" id="hNew">+ Nueva propuesta</button><button id="hTpl">✎ Editar plantilla base</button><input id="hQ" placeholder="Buscar cliente…"></div>
+    <div id="hList"><div class="loading">Cargando…</div></div></div>`;
+  $('#hNew').onclick = newDoc;
+  $('#hTpl').onclick = async () => { const r = await api('getTemplate').catch(() => ({})); const d = hydrate(r.doc); d.id = 'plantilla'; showEditor(d, true); };
+  if ($('#hOut')) $('#hOut').onclick = () => { store.del('soe_key'); KEY = ''; showLogin(); };
+  const r = await api('list').catch(() => ({ ok: false, error: 'Sin conexión' }));
+  if (!r.ok) { if (r.auth === false) return showLogin('Ingresá la clave'); $('#hList').innerHTML = `<div class="empty-list">${esc(r.error || 'Error')}</div>`; return; }
+  const items = r.items || [];
+  const draw = () => {
+    const q = $('#hQ').value.toLowerCase().trim();
+    const f = items.filter(i => !q || (String(i.cliente) + ' ' + String(i.contacto)).toLowerCase().includes(q));
+    $('#hList').innerHTML = f.length ? f.map(i => `<div class="card" data-id="${esc(i.id)}">
+      <div class="c-main"><b>${esc(i.cliente || '(sin nombre)')}</b><small>${i.tipo === 'persona' ? 'Persona física' : 'Empresa'}${i.contacto ? ' · ' + esc(i.contacto) : ''} · Act. ${fdt(i.actualizada)}</small></div>
+      <div class="c-views${+i.vistas ? ' seen' : ''}">${+i.vistas ? `👁 Vista ${i.vistas} ${+i.vistas === 1 ? 'vez' : 'veces'}<br><small>${fdt(i.ultima)}</small>` : 'Aún no la abrió'}</div>
+      <div class="c-btns"><button data-h="open" class="pri">Abrir</button><button data-h="wa" class="wa">${IC.wa.replace('<svg', '<svg width="14" height="14" fill="currentColor"')} WhatsApp</button><button data-h="copy">🔗 Enlace</button><button data-h="dup">Duplicar</button><button data-h="del" class="danger">Eliminar</button></div></div>`).join('')
+      : `<div class="empty-list">${items.length ? 'Sin resultados.' : 'Todavía no hay propuestas. Tocá <b>+ Nueva propuesta</b> para crear la primera.'}</div>`;
+  };
+  draw(); $('#hQ').oninput = draw;
+  $('#hList').onclick = async e => {
+    const b = e.target.closest('[data-h]'); if (!b) return;
+    const id = b.closest('.card').dataset.id, it = items.find(x => x.id === id), h = b.dataset.h;
+    if (h === 'open') { const g = await api('get', { id }); if (g.ok) { showEditor(g.doc, false); D._saved = true; } else toast(g.error, true); }
+    else if (h === 'wa') window.open(waShare(it.tel, shareMsg(it.cliente, it.contacto, id)), '_blank');
+    else if (h === 'copy') copyText(clientLink(id));
+    else if (h === 'dup') { const g = await api('get', { id }); if (!g.ok) return toast(g.error, true); const d = hydrate(g.doc); d.id = uid(); d.cliente.nombre = (d.cliente.nombre || '') + ' (copia)'; delete d._vistas; delete d._ultima; delete d._upd; await api('save', { doc: d }); toast('Duplicada'); showHome(); }
+    else if (h === 'del') { if (!confirm('¿Eliminar la propuesta de ' + (it.cliente || 'este cliente') + '? El enlace dejará de funcionar.')) return; await api('delete', { id }); toast('Eliminada'); showHome(); }
+  };
+}
+async function newDoc() {
+  const r = await api('getTemplate').catch(() => ({}));
+  const d = hydrate(r.doc); const now = new Date();
+  d.id = uid(); d.cliente = { nombre: '', tipo: 'empresa', contacto: '', tel: '' };
+  d.fecha = isoLocal(now); d.validez = isoLocal(new Date(now.getTime() + 30 * 864e5));
+  showEditor(d, false); dirty();
+  setTimeout(() => { $('#side').classList.add('open'); const i = $('[data-c="nombre"]'); if (i) i.focus(); }, 150);
+}
+
+/* =================== LOGIN =================== */
+function showLogin(msg = '') {
+  document.body.className = 'home';
+  $('#app').innerHTML = `<div class="login"><img src="img/logo.png" alt="Clínica SOE"><h2>Acceso clínica</h2><input id="lk" type="password" placeholder="Clave de acceso" autocomplete="current-password"><button class="pri" id="lb">Ingresar</button><p class="err">${esc(msg)}</p></div>`;
+  const go = async () => {
+    KEY = $('#lk').value.trim(); $('#lb').textContent = 'Verificando…';
+    const r = await api('login').catch(() => ({ ok: false, error: 'Sin conexión' }));
+    if (r.ok) { store.set('soe_key', KEY); showHome(); } else showLogin(r.error || 'Clave incorrecta');
+  };
+  $('#lb').onclick = go; $('#lk').onkeydown = e => { if (e.key === 'Enter') go(); }; $('#lk').focus();
+}
+
+/* =================== VISTA DEL CLIENTE =================== */
+async function showClient(id) {
+  EDIT = false; document.body.className = 'client';
+  const r = await api('get', { id }).catch(() => ({ ok: false }));
+  if (!r.ok) { $('#app').innerHTML = '<div class="loading">No encontramos esta propuesta. Consultá con Clínica SOE Health Care.</div>'; return; }
+  D = hydrate(r.doc);
+  document.title = 'Propuesta' + (D.cliente.nombre ? ' para ' + D.cliente.nombre : '') + ' · Clínica SOE Health Care';
+  $('#app').innerHTML = `<main id="doc" class="doc"></main><div class="vbar"><button data-act="pdf">${IC.dl} Descargar PDF</button><a class="wa" href="${waClinic()}" target="_blank" rel="noopener">${IC.wa} Agendar por WhatsApp</a></div>`;
+  renderDoc();
+  if (!new URLSearchParams(location.search).has('preview')) api('view', { id, ua: navigator.userAgent }).catch(() => {});
+}
+
+/* =================== INICIO =================== */
+(function init() {
+  const p = new URLSearchParams(location.search).get('p');
+  if (p) return showClient(p);
+  if (!DEMO && !KEY) return showLogin();
+  showHome();
+})();
+</script>
+</body>
+</html>
